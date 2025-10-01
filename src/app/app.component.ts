@@ -1,16 +1,22 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import { ReportScannerComponent } from './components/report-scanner.component';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
+  imports: [RouterOutlet, ReportScannerComponent],
   template: `
-    <h1>Welcome to {{title}}!</h1>
-
+    <app-report-scanner></app-report-scanner>
     <router-outlet />
   `,
-  styles: [],
+  styles: [`
+    :host {
+      display: block;
+      min-height: 100vh;
+      background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    }
+  `],
 })
 export class AppComponent {
-  title = 'first-ng-app1';
+  title = 'Report Scanner';
 }

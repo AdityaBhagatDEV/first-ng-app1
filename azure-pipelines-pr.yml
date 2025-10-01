@@ -1,0 +1,42 @@
+# PR Validation Pipeline
+# Simplified pipeline for quick PR validation
+
+trigger: none
+
+pr:
+  branches:
+    include:
+    - main
+    - develop
+  paths:
+    exclude:
+    - README.md
+    - docs/*
+    - '*.md'
+
+variables:
+  nodeVersion: '20.x'
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+steps:
+- task: NodeTool@0
+  displayName: 'Setup Node.js'
+  inputs:
+    versionSpec: '$(nodeVersion)'
+
+- script: npm ci
+  displayName: 'Install dependencies'
+
+- script: npm run test -- --browsers=ChromeHeadless --watch=false
+  displayName: 'Run tests'
+  env:
+    CHROME_BIN: '/usr/bin/google-chrome'
+
+- script: npm run build
+  displayName: 'Build app'
+
+- script: npm audit --audit-level=high
+  displayName: 'Security check'
+  continueOnError: true

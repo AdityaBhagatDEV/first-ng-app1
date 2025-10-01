@@ -1,0 +1,56 @@
+[
+  {
+    "id": 1,
+    "product_name": "Laptop Computer",
+    "price": 899.99,
+    "quantity": 10,
+    "category": "Electronics",
+    "in_stock": true,
+    "last_updated": "2023-10-01"
+  },
+  {
+    "id": 2,
+    "product_name": "",
+    "price": "invalid_price",
+    "quantity": -5,
+    "category": "Electronics",
+    "in_stock": "yes",
+    "last_updated": "2023-10-02"
+  },
+  {
+    "id": 3,
+    "product_name": "Wireless Mouse",
+    "price": 25.50,
+    "quantity": 50,
+    "category": "Electronics",
+    "in_stock": true,
+    "last_updated": "2023-10-03"
+  },
+  {
+    "id": 4,
+    "product_name": "Office Chair",
+    "price": 150.00,
+    "quantity": 8,
+    "category": "Furniture",
+    "in_stock": true,
+    "last_updated": "not-a-date"
+  },
+  {
+    "id": 5,
+    "product_name": "Desk Lamp",
+    "price": null,
+    "quantity": 15,
+    "category": "",
+    "in_stock": false,
+    "last_updated": "2023-10-05"
+  },
+  {
+    "id": 1,
+    "product_name": "Laptop Computer",
+    "price": 899.99,
+    "quantity": 10,
+    "category": "Electronics",
+    "in_stock": true,
+    "last_updated": "2023-10-01"
+  }
+]

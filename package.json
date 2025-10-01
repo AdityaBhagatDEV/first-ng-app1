@@ -5,8 +5,14 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
+    "build:prod": "ng build --configuration=production",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "test:ci": "ng test --browsers=ChromeHeadless --watch=false --code-coverage=true",
+    "test:coverage": "ng test --code-coverage=true --watch=false",
+    "lint": "echo 'Linting not configured. Add ESLint configuration to enable.'",
+    "e2e": "echo 'E2E tests not configured. Add Cypress or Protractor to enable.'",
+    "audit": "npm audit --audit-level=moderate"
   },
   "private": true,
   "dependencies": {

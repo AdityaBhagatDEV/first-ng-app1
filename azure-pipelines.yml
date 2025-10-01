@@ -1,0 +1,57 @@
+# Azure DevOps Pipeline for Angular Application
+# Builds and tests Angular app for PR validation
+
+trigger:
+  branches:
+    include:
+    - main
+    - develop
+    - feature/*
+
+pr:
+  branches:
+    include:
+    - main
+    - develop
+
+variables:
+  nodeVersion: '20.x'
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+steps:
+- task: NodeTool@0
+  displayName: 'Install Node.js'
+  inputs:
+    versionSpec: '$(nodeVersion)'
+
+- script: |
+    npm ci
+  displayName: 'Install dependencies'
+
+- script: |
+    npm install -g @angular/cli
+  displayName: 'Install Angular CLI'
+
+- script: |
+    ng test --browsers=ChromeHeadless --watch=false --code-coverage=true
+  displayName: 'Run unit tests'
+  env:
+    CHROME_BIN: '/usr/bin/google-chrome'
+
+- task: PublishTestResults@2
+  displayName: 'Publish test results'
+  inputs:
+    testResultsFormat: 'JUnit'
+    testResultsFiles: '**/TESTS-*.xml'
+    failTaskOnFailedTests: true
+  condition: succeededOrFailed()
+
+- script: |
+    ng build --configuration=production
+  displayName: 'Build application'
+
+- script: |
+    npm audit --audit-level=moderate || exit 0
+  displayName: 'Security audit'

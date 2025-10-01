@@ -1,0 +1,11 @@
+customer_id	customer_name	email	registration_date	total_orders	status
+1001	John Smith	john@email.com	01/15/2023	5	active
+1002		jane@invalid-email	2023-02-20	3	active
+1003	Bob Johnson	bob@email.com	03/10/2023		inactive
+1004	Alice Brown	alice@email.com	2023-04-15	8	ACTIVE
+1005	Charlie Wilson	charlie@email.com	invalid_date	2	active
+1006	Diana Miller	diana@email.com	06/20/2023	12	Active
+1007	Eve Davis	eve@email.com	07/25/2023	1	pending
+1008	Frank Garcia	frank@email.com	08/30/2023	0	inactive
+1009	Grace Martinez	grace@email.com	09/15/2023	4	active
+1010	Henry Rodriguez	henry@email.com	10/01/2023	6	Active
